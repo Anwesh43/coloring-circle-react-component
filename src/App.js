@@ -6,10 +6,11 @@ import {useAnimatedScale, useDimension} from './hooks'
 
 function App() {
   const {w, h, resize, disableResizing} = useDimension()
-  const {scale, start} = useAnimatedScale(0.02 / 3, 20)
+  const {scale, start} = useAnimatedScale(0.02 / 3, 10)
+  //console.log(scale)
   return (
     <div className="App">
-      <ColoringCircleBar w = {w} h = {h} scale = {scale}/>
+      <ColoringCircleBar onClick = {start} w = {w} h = {h} scale = {scale}/>
     </div>
   );
 }

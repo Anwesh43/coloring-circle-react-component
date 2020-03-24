@@ -2,7 +2,7 @@ import {useState} from 'react'
 
 export const useAnimatedScale = (scGap, delay) => {
     const [scale, setScale] = useState(0)
-    const [dir, setDir] = useState(0)
+    const [dir, setDir] = useState(1)
     const [animated, setAnimated] = useState(false)
     return {
         start() {
@@ -10,10 +10,11 @@ export const useAnimatedScale = (scGap, delay) => {
             if (!animated) {
                 setAnimated(true)
                 const interval = setInterval(() => {
-                    currScale += scale * dir
+                    currScale += scGap * dir
+                    setScale(currScale)
                     if (Math.abs(currScale - scale) > 1) {
                         setScale(scale + dir)
-                        setDir(1 - 2 * dir)
+                        setDir(dir * -1)
                         setAnimated(false)
                         clearInterval(interval)
                     }
