@@ -34,10 +34,11 @@ const fillBarStyle = (i, w, h, scale) => {
 }
 
 const Bar = ({i, w, h, scale}) => {
+    const sc = i * scale + (1 - scale) * (1 - i)
     return (<div>
               <div style = {strokeBarStyle(i, w, h)}>
               </div>
-              <div style = {fillBarStyle(i, w, h)}>
+              <div style = {fillBarStyle(i, w, h, sc)}>
               </div>
           </div>)
 }
