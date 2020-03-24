@@ -19,3 +19,5 @@ const Circle = ({scale, w, h}) => {
     return (<div style = {circleStyle(w, h, scale)}>
           </div>)
 }
+
+export default Circle 
