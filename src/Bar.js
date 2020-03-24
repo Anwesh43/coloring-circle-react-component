@@ -1,13 +1,11 @@
 import React from 'react'
-
+import {offsetFactor, hSizeFactor} from './constants'
 const color = '#673AB7'
 
 const commonStyle = (i, w, h) => {
     const position = 'absolute'
     const y = 0
-    const sizeFactor = 12
-    const hSizeFactor = 3
-    const size = `${w / sizeFactor}px`
+    const size = `${w / offsetFactor}px`
     const x = (w - size) * i
     const hSize = h / hSizeFactor
     return {top, x, hSize, y, size, position}
@@ -44,4 +42,4 @@ const Bar = ({i, w, h, scale}) => {
           </div>)
 }
 
-export default Bar 
+export default Bar
